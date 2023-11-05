@@ -1,0 +1,50 @@
+@import "../../styles/_colors";
+
+.inputWrapper {
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    height: 20px;
+    width: 14px;
+}
+
+.input {
+    color: $very-dark-cyan;
+    text-align: right;
+    width: 100%;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: $very-light-grayish-cyan;
+    // NOTE: To hide arrows in the input
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    
+    appearance: textfield;
+    -moz-appearance: textfield;
+    border: none;
+
+    &:focus-visible {
+        outline-color: $very-dark-cyan;
+    }
+
+    &::placeholder {
+        color: $dark-grayish-cyan;
+        opacity: 1; /* Firefox */
+    }
+    &::-ms-input-placeholder {
+        color: $dark-grayish-cyan;
+    }
+}
+
+.label {
+    color: $grayish-cyan;
+    margin-bottom: 6px;
+}
