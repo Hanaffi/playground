@@ -16,11 +16,13 @@ type Tip = {
 type PricingRowProps = {
     label: string
     value: number
+    dataTestId: string
 }
 
 function PricingRow({
     label,
-    value
+    value,
+    dataTestId
 }: PricingRowProps) {
     const prettyValue = value.toFixed(2)
 
@@ -29,7 +31,7 @@ function PricingRow({
             <div className={styles.pricingRowLabel}>{label}</div>
             <div className={styles.pricingRowPerPerson}>/ person</div>
         </div>
-        <div className={styles.pricingRowValue}>${prettyValue}</div>
+        <div data-testid={dataTestId} className={styles.pricingRowValue}>${prettyValue}</div>
     </div>
 }
 
@@ -76,6 +78,7 @@ function PricingCard() {
                 min="0"
                 pattern="[0-9]*"
                 label="Bill"
+                data-testid="bill-input"
                 value={bill}
                 onChange={handleBillChange}
                 Icon={<Image src="icon-dollar.svg" alt="dollar" width={12} height={12} />}
@@ -94,6 +97,7 @@ function PricingCard() {
                     type="number"
                     min="0"
                     pattern="[0-9]*"
+                    data-testid="custom-tip-input"
                     value={tip?.type == "custom" ? tip.value : ""}
                     placeholder='Custom'
                     onChange={handleCustomBillChange}
@@ -107,6 +111,7 @@ function PricingCard() {
                 pattern="[0-9]*"
                 step={1}
                 value={people}
+                data-testid="people-input"
                 label="Number of People"
                 error={people == 0 ? "Can't be zero" : undefined}
                 onChange={handlePeopleChange}
@@ -117,8 +122,8 @@ function PricingCard() {
 
         <div className={styles.resultWrapper}>
             <div className={styles.pricingRowsWrapper}>
-                <PricingRow value={tipAmountPerPerson} label='Tip Amount' />
-                <PricingRow value={totalAmountPerPerson} label='Total' />
+                <PricingRow value={tipAmountPerPerson} label='Tip Amount' dataTestId='tip-amount-value' />
+                <PricingRow value={totalAmountPerPerson} label='Total' dataTestId="total-amount-value" />
             </div>
 
             <Button onClick={handleReset}>Reset</Button>
