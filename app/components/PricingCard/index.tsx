@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import Input from '../Input'
 import styles from './PricingCard.module.scss'
-import {  useState } from 'react'
+import { useState } from 'react'
 import Checkbox from '../Checkbox'
+import Button from '../Button'
 
 const STANDARD_TIPS = [5, 10, 15, 25, 50];
 
@@ -35,7 +36,7 @@ function PricingRow({
 
 function PricingCard() {
     const [bill, setBill] = useState(0)
-    const [people, setPeople] = useState(0)
+    const [people, setPeople] = useState(1)
     const [tip, setTip] = useState<Tip | null>(null)
 
     const tipAmountPerPerson = people == 0 ? 0 : bill * ((tip?.value ?? 0) / 100) / people
@@ -55,8 +56,8 @@ function PricingCard() {
         })
     }
 
-    const handleStandardBillClick = (standardTip: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTip(_prev => (event.target as HTMLInputElement).checked ? ({
+    const handleStandardBillClick = (standardTip: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTip(_prev => (e.target as HTMLInputElement).checked ? ({
             value: standardTip,
             type: "standard"
         }) : null)
@@ -64,17 +65,17 @@ function PricingCard() {
 
     const handleReset = (_e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         setBill(0)
-        setPeople(0)
+        setPeople(1)
         setTip(null)
     }
 
     return <div className={styles.card}>
         <div className={styles.inputsWrapper}>
             <Input
-                min="0"
-                label="Bill"
                 type="number"
+                min="0"
                 pattern="[0-9]*"
+                label="Bill"
                 value={bill}
                 onChange={handleBillChange}
                 Icon={<Image src="icon-dollar.svg" alt="dollar" width={12} height={12} />}
@@ -82,20 +83,20 @@ function PricingCard() {
 
             <div className={styles.tipsWrapper}>
                 {STANDARD_TIPS.map(standardTip => {
-                        const checked = tip?.type == "standard" && tip?.value == standardTip
+                    const checked = tip?.type == "standard" && tip?.value == standardTip
 
-                        return <Checkbox key={standardTip} label={`${standardTip}%`}
-                            checked={checked}
-                            onChange={handleStandardBillClick(standardTip)}
-                        />
-                    })}
+                    return <Checkbox key={standardTip} label={`${standardTip}%`}
+                        checked={checked}
+                        onChange={handleStandardBillClick(standardTip)}
+                    />
+                })}
                 <Input
-                    min="0"
                     type="number"
+                    min="0"
                     pattern="[0-9]*"
                     value={tip?.type == "custom" ? tip.value : ""}
-                    onChange={handleCustomBillChange}
                     placeholder='Custom'
+                    onChange={handleCustomBillChange}
                     className={styles.customInput}
                 />
             </div>
@@ -107,8 +108,10 @@ function PricingCard() {
                 step={1}
                 value={people}
                 label="Number of People"
+                error={people == 0 ? "Can't be zero" : undefined}
                 onChange={handlePeopleChange}
                 Icon={<Image src="icon-person.svg" alt="dollar" width={12} height={12} />}
+              
             />
         </div>
 
@@ -118,7 +121,7 @@ function PricingCard() {
                 <PricingRow value={totalAmountPerPerson} label='Total' />
             </div>
 
-            <button className={styles.resetBtn} onClick={handleReset}>Reset</button>
+            <Button onClick={handleReset}>Reset</Button>
         </div>
     </div>
 }
