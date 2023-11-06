@@ -2,9 +2,9 @@ import React, { useId } from 'react'
 import styles from './Input.module.scss'
 import cx from 'classnames';
 
-type Props = Omit<React.HTMLProps<HTMLInputElement> & {
+type Props = React.HTMLProps<HTMLInputElement> & {
     Icon?: React.ReactElement
-}, "type">
+}
 
 function Input({ Icon, className, ...props }: Props) {
     const inputId = useId()
@@ -18,10 +18,8 @@ function Input({ Icon, className, ...props }: Props) {
             {Icon ? React.cloneElement(Icon, { className: styles.icon }) : null}
 
             <input
-                type="number"
                 id={inputId}
                 className={cx(styles.input, className)}
-                pattern="[0-9]*"
                 {...props}
             />
         </div>

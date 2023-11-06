@@ -73,6 +73,8 @@ function PricingCard() {
             <Input
                 min="0"
                 label="Bill"
+                type="number"
+                pattern="[0-9]*"
                 value={bill}
                 onChange={handleBillChange}
                 Icon={<Image src="icon-dollar.svg" alt="dollar" width={12} height={12} />}
@@ -89,6 +91,8 @@ function PricingCard() {
                     })}
                 <Input
                     min="0"
+                    type="number"
+                    pattern="[0-9]*"
                     value={tip?.type == "custom" ? tip.value : ""}
                     onChange={handleCustomBillChange}
                     placeholder='Custom'
@@ -98,6 +102,8 @@ function PricingCard() {
 
             <Input
                 min="0"
+                type="number"
+                pattern="[0-9]*"
                 step={1}
                 value={people}
                 label="Number of People"

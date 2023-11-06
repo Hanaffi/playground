@@ -1,8 +1,8 @@
-@import "../../styles/_colors";
+
 
 .card {
     width: 800px;
-    height: 400px;
+    min-height: 400px;
     background-color: white;
     border-radius: 16px;
     padding: 32px;
@@ -11,12 +11,22 @@
     gap: 32px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+
+    @include mobile {
+        grid-template-columns:  1fr;
+        width: 100%;
+        padding: 16px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
 }
 
 .inputsWrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 32px;
 }
 
 .tipsWrapper {
@@ -39,10 +49,14 @@
     background-color: $very-dark-cyan;
     padding: 32px;
     border-radius: 16px;
-    width: min(500px, 100%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 26px;
+
+    @include mobile {
+        padding: 24px;
+    }
 }
 
 
