@@ -1,3 +1,5 @@
+@import "../../styles/_colors";
+
 .card {
     width: 800px;
     height: 400px;
@@ -6,18 +8,85 @@
     padding: 32px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     display: flex;
-    
+    gap: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
-
+.inputsWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .tipsWrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     gap: 24px;
 
     & *{
         width: 84px;
     }
+}
+
+.customInput {
+    text-align: center;
+}
+
+.resultWrapper {
+    background-color: $very-dark-cyan;
+    padding: 32px;
+    border-radius: 16px;
+    width: min(500px, 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pricingRowInfoWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.pricingRowLabel {
+    color: white;
+    font-size: 18px;
+}
+
+.pricingRowPerPerson {
+    color: $dark-grayish-cyan;
+    font-size: 14px;
+}
+
+.pricingRowValue {
+    color: $active-color;
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+.pricingRowsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.resetBtn {
+    padding: 16px;
+    color:  $very-dark-cyan;
+    background-color:  $active-color;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 14px;
+    cursor: pointer;
 }
