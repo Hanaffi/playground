@@ -2,16 +2,19 @@ import Page from "../app/page";
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 
+beforeEach(() => {
+  render(<Page />);
+
+});
+
+
 describe("Tip Calculator", () => {
   it("renders the logo", () => {
-    render(<Page />);
 
     expect(screen.getByTestId("logo")).toBeInTheDocument();
   });
 
   it("shows error when people count is zero", () => {
-    render(<Page />);
-
     fireEvent.change(screen.getByTestId("people-input"), {
       target: { value: 0 }
     })
@@ -20,8 +23,6 @@ describe("Tip Calculator", () => {
   });
 
   it("shows the correct tip value per person", () => {
-    render(<Page />);
-
     fireEvent.change(screen.getByTestId("bill-input"), {
       target: { value: 100 }
     })
