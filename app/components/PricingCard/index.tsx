@@ -84,25 +84,28 @@ function PricingCard() {
                 Icon={<Image src="icon-dollar.svg" alt="dollar" width={12} height={12} />}
             />
 
-            <div className={styles.tipsWrapper}>
-                {STANDARD_TIPS.map(standardTip => {
-                    const checked = tip?.type == "standard" && tip?.value == standardTip
+            <div>
+                <p className={styles.tipInputsLabel}>Select Tip %</p>
+                <div className={styles.tipsWrapper}>
+                    {STANDARD_TIPS.map(standardTip => {
+                        const checked = tip?.type == "standard" && tip?.value == standardTip
 
-                    return <Checkbox key={standardTip} label={`${standardTip}%`}
-                        checked={checked}
-                        onChange={handleStandardBillClick(standardTip)}
+                        return <Checkbox key={standardTip} label={`${standardTip}%`}
+                            checked={checked}
+                            onChange={handleStandardBillClick(standardTip)}
+                        />
+                    })}
+                    <Input
+                        type="number"
+                        min="0"
+                        pattern="[0-9]*"
+                        data-testid="custom-tip-input"
+                        value={tip?.type == "custom" ? tip.value : ""}
+                        placeholder='Custom'
+                        onChange={handleCustomBillChange}
+                        className={styles.customInput}
                     />
-                })}
-                <Input
-                    type="number"
-                    min="0"
-                    pattern="[0-9]*"
-                    data-testid="custom-tip-input"
-                    value={tip?.type == "custom" ? tip.value : ""}
-                    placeholder='Custom'
-                    onChange={handleCustomBillChange}
-                    className={styles.customInput}
-                />
+                </div>
             </div>
 
             <Input
@@ -116,7 +119,7 @@ function PricingCard() {
                 error={people == 0 ? "Can't be zero" : undefined}
                 onChange={handlePeopleChange}
                 Icon={<Image src="icon-person.svg" alt="dollar" width={12} height={12} />}
-              
+
             />
         </div>
 
