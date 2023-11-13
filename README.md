@@ -1,6 +1,6 @@
 # Tip Calculator
 
-Calculate the correct tip and total cost of the bill per person
+This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -27,8 +27,6 @@ Users should be able to:
 ### Screenshot
 
 ![screenshot](./screenshot.png)
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
 ### Links
 
