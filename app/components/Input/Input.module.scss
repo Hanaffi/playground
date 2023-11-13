@@ -1,62 +1,61 @@
-
 .inputWrapper {
-    position: relative;
+  position: relative;
 }
 
 .icon {
-    position: absolute;
-    left: 8px;
-    width: 14px;
-    height: 22px;
-    top: 56%;
-    pointer-events: none;
+  position: absolute;
+  left: 8px;
+  width: 14px;
+  height: 22px;
+  top: 56%;
+  pointer-events: none;
 }
 
 .input {
-    color: $very-dark-cyan;
-    text-align: right;
-    width: 100%;
-    padding: 8px;
-    font-weight: bold;
-    font-size: 18px;
-    background-color: $very-light-grayish-cyan;
-    // NOTE: To hide arrows in the input
-    &::-webkit-inner-spin-button,
-    &::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-    
-    appearance: textfield;
-    -moz-appearance: textfield;
-    border: none;
+  color: $very-dark-cyan;
+  text-align: right;
+  width: 100%;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: $very-light-grayish-cyan;
+  // NOTE: To hide arrows in the input
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
-    &:focus-visible {
-        outline-color: $very-dark-cyan;
-    }
+  appearance: textfield;
+  -moz-appearance: textfield;
+  border: none;
 
-    &::placeholder {
-        color: $dark-grayish-cyan;
-        opacity: 1; /* Firefox */
-    }
-    &::-ms-input-placeholder {
-        color: $dark-grayish-cyan;
-    }
+  &:focus-visible {
+    outline-color: $very-dark-cyan;
+  }
+
+  &::placeholder {
+    color: $dark-grayish-cyan;
+    opacity: 1; /* Firefox */
+  }
+  &::-ms-input-placeholder {
+    color: $dark-grayish-cyan;
+  }
 }
 
 .label {
-    color: $dark-grayish-cyan;
-    margin-bottom: 12px;
-    display: inline-block;
+  color: $dark-grayish-cyan;
+  margin-bottom: 12px;
+  display: inline-block;
 }
 
 .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .error {
-    color: red;
+  color: red;
 }

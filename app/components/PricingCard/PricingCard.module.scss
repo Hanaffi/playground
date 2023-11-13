@@ -1,99 +1,92 @@
-
-
 .card {
-    width: 800px;
-    min-height: 400px;
-    background-color: white;
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    display: flex;
-    gap: 32px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  width: 800px;
+  background-color: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  gap: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
-
-    @include mobile {
-        grid-template-columns:  1fr;
-        width: 100%;
-        padding: 16px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
+  @include mobile {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 16px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
 
 .inputsWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
 }
 
 .tipsWrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
 
-    & *{
-        width: 84px;
-    }
+  & * {
+    width: 84px;
+  }
 }
 
 .tipInputsLabel {
-    color: $dark-grayish-cyan;
-    margin-bottom: 12px;
+  color: $dark-grayish-cyan;
+  margin-bottom: 12px;
 }
 
 .customInput {
-    text-align: center;
+  text-align: center;
 }
 
 .resultWrapper {
-    background-color: $very-dark-cyan;
-    padding: 32px;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 26px;
+  background-color: $very-dark-cyan;
+  padding: 32px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 26px;
 
-    @include mobile {
-        padding: 24px;
-    }
+  @include mobile {
+    padding: 24px;
+  }
 }
 
-
 .row {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .pricingRowInfoWrapper {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .pricingRowLabel {
-    color: white;
-    font-size: 18px;
+  color: white;
+  font-size: 18px;
 }
 
 .pricingRowPerPerson {
-    color: $dark-grayish-cyan;
-    font-size: 14px;
+  color: $dark-grayish-cyan;
+  font-size: 14px;
 }
 
 .pricingRowValue {
-    color: $active-color;
-    font-size: 32px;
-    font-weight: bolder;
+  color: $active-color;
+  font-size: 32px;
+  font-weight: bolder;
 }
 
 .pricingRowsWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
-

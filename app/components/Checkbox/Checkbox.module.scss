@@ -1,22 +1,21 @@
-
 .input {
-    display: none;
+  display: none;
 }
 
 .label {
-    padding: 10px;
-    color: white;
-    background-color: $very-dark-cyan;
-    display: inline-block;
-    border-radius: 4px;
-    font-weight: 500;
-    min-width: 60px;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-    
-    &:has(input:checked) {
-        background-color: $active-color;
-        color: $very-dark-cyan;
-    }
+  padding: 10px;
+  color: white;
+  background-color: $very-dark-cyan;
+  display: inline-block;
+  border-radius: 4px;
+  font-weight: 500;
+  min-width: 60px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+
+  &:has(input:checked) {
+    background-color: $active-color;
+    color: $very-dark-cyan;
+  }
 }
